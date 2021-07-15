@@ -1,0 +1,23 @@
+{
+  "name": "blockchainwithtypescript",
+  "version": "1.0.0",
+  "description": "Get to know typescript by making simple blockchain with it",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc-watch --onSuccess \" node build/index.js\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phj9020/typechain.git"
+  },
+  "author": "hanjinpark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phj9020/typechain/issues"
+  },
+  "homepage": "https://github.com/phj9020/typechain#readme",
+  "dependencies": {
+    "crypto-js": "^4.0.0",
+    "tsc-watch": "^4.4.0"
+  }
+}

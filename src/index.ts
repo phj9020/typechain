@@ -1,3 +1,6 @@
+import * as CryptoJs from 'crypto-js';
+
+
 class Block {
     public index: number;
     public hash: string;
@@ -12,13 +15,25 @@ class Block {
         this.data =data;
         this.timestamp = timestamp;
     }
+
+    static calculateHash(index:number, previousHash:string, timestamp:number, data:string) : string {
+        return CryptoJs.SHA256(index + previousHash + timestamp + data).toString();
+    }
 }
 
+// create Block instance 
 const genesisBlock: Block = new Block(0,"2021","2020", "first", 42123434);
 
+// make it array 
 let blockchain: Block[] = [genesisBlock];
 
-blockchain.push(new Block(0,"2021","2020", "second", 3213213))
+// fb : get array of blockchain
+const getBlockchain = () : Block[] => {
+    return blockchain;
+};
 
+// fn : get last index of blockchain array
+const getLastestBlock = () : Block => blockchain[blockchain.length - 1];
 
-console.log(blockchain)
+// fn : get current timestamp
+const getNewTimeStamp = () : number => Math.round(new Date().getTime() / 1000);
